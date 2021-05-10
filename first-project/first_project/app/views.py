@@ -18,11 +18,12 @@ def home_view(request):
 
 
 def time_view(request):
-    current_time = datetime.now()
+
+    current_time = datetime.strftime(datetime.now(), '%H:%M:%S')
     msg = f'Текущее время: {current_time}'
     return HttpResponse(msg)
 
 
 def workdir_view(request):
     return HttpResponse(' '.join(listdir()))
-    raise NotImplemented
+
