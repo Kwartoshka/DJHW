@@ -1,5 +1,5 @@
 from django import template
-import csv
+
 
 register = template.Library()
 
