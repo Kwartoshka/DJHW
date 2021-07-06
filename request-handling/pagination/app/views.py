@@ -27,12 +27,14 @@ def bus_stations(request):
         current_page = paginator.num_pages
     page = paginator.get_page(current_page)
     params = urllib.parse.urlencode({'page': current_page + 1})
+    params_prev = urllib.parse.urlencode({'page': current_page + 1})
     next_page_url = reverse('bus_stations') + '?' + params
+    prev_page_url = reverse('bus_stations') + '?' + params_prev
 
     return render(request, 'index.html', context={
         'bus_stations': page,
         'current_page': current_page,
-        'prev_page_url': None,
+        'prev_page_url': prev_page_url,
         'next_page_url': next_page_url,
     })
 
